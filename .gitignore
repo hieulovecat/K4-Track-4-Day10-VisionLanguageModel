@@ -12,3 +12,6 @@ adapter*/
 .ipynb_checkpoints/
 .pytest_cache/
 .DS_Store
+
+# Thư mục giải nén kết quả từ Kaggle (đã chép vào report/ và work/)
+lab10_results/

@@ -1,0 +1,153 @@
+{
+ "e0": {
+  "fp_kind": {
+   "crack|bia(IoU<0.1)": 114,
+   "manhole|lech_vi_tri(0.1<=IoU<0.5)": 29,
+   "crack|lech_vi_tri(0.1<=IoU<0.5)": 67,
+   "manhole|bia(IoU<0.1)": 14,
+   "pothole|bia(IoU<0.1)": 16,
+   "crack|sai_lop": 4,
+   "pothole|lech_vi_tri(0.1<=IoU<0.5)": 19
+  },
+  "recall_by_size": {
+   "crack|vua(0.5-2%)": [
+    2,
+    136
+   ],
+   "manhole|vua(0.5-2%)": [
+    22,
+    96
+   ],
+   "manhole|nho(<0.5%)": [
+    5,
+    64
+   ],
+   "crack|lon(>2%)": [
+    7,
+    148
+   ],
+   "pothole|vua(0.5-2%)": [
+    4,
+    46
+   ],
+   "pothole|nho(<0.5%)": [
+    1,
+    68
+   ],
+   "crack|nho(<0.5%)": [
+    0,
+    15
+   ],
+   "pothole|lon(>2%)": [
+    4,
+    7
+   ],
+   "manhole|lon(>2%)": [
+    1,
+    3
+   ]
+  }
+ },
+ "e1": {
+  "fp_kind": {
+   "manhole|bia(IoU<0.1)": 19,
+   "crack|bia(IoU<0.1)": 168,
+   "manhole|sai_lop": 4,
+   "crack|lech_vi_tri(0.1<=IoU<0.5)": 130,
+   "manhole|lech_vi_tri(0.1<=IoU<0.5)": 14,
+   "pothole|bia(IoU<0.1)": 18,
+   "crack|sai_lop": 18,
+   "pothole|sai_lop": 6,
+   "pothole|lech_vi_tri(0.1<=IoU<0.5)": 8
+  },
+  "recall_by_size": {
+   "crack|vua(0.5-2%)": [
+    19,
+    136
+   ],
+   "manhole|vua(0.5-2%)": [
+    53,
+    96
+   ],
+   "manhole|nho(<0.5%)": [
+    15,
+    64
+   ],
+   "crack|lon(>2%)": [
+    44,
+    148
+   ],
+   "pothole|vua(0.5-2%)": [
+    5,
+    46
+   ],
+   "pothole|nho(<0.5%)": [
+    10,
+    68
+   ],
+   "crack|nho(<0.5%)": [
+    1,
+    15
+   ],
+   "pothole|lon(>2%)": [
+    4,
+    7
+   ],
+   "manhole|lon(>2%)": [
+    1,
+    3
+   ]
+  }
+ },
+ "e3": {
+  "fp_kind": {
+   "manhole|bia(IoU<0.1)": 25,
+   "crack|lech_vi_tri(0.1<=IoU<0.5)": 91,
+   "crack|bia(IoU<0.1)": 60,
+   "pothole|sai_lop": 23,
+   "crack|sai_lop": 21,
+   "manhole|lech_vi_tri(0.1<=IoU<0.5)": 14,
+   "pothole|bia(IoU<0.1)": 29,
+   "pothole|lech_vi_tri(0.1<=IoU<0.5)": 10,
+   "manhole|sai_lop": 5
+  },
+  "recall_by_size": {
+   "crack|vua(0.5-2%)": [
+    40,
+    136
+   ],
+   "manhole|vua(0.5-2%)": [
+    72,
+    96
+   ],
+   "manhole|nho(<0.5%)": [
+    25,
+    64
+   ],
+   "crack|lon(>2%)": [
+    67,
+    148
+   ],
+   "pothole|vua(0.5-2%)": [
+    14,
+    46
+   ],
+   "pothole|nho(<0.5%)": [
+    14,
+    68
+   ],
+   "crack|nho(<0.5%)": [
+    0,
+    15
+   ],
+   "pothole|lon(>2%)": [
+    4,
+    7
+   ],
+   "manhole|lon(>2%)": [
+    2,
+    3
+   ]
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "n": 311,
+ "invalid_json": 21,
+ "code_fence": 0,
+ "extra_text": 0,
+ "empty_list": 20,
+ "empty_but_has_gt": 20,
+ "coord_gt_1000": 0,
+ "unknown_label": 0,
+ "boxes_pred": 309,
+ "boxes_gt": 583,
+ "pred_labels": {
+  "crack": 194,
+  "manhole": 71,
+  "pothole": 44
+ }
+}
