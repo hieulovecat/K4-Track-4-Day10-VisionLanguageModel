@@ -18,6 +18,16 @@ def test_yolo_to_box_norm1000_and_clamp():
     assert yolo_to_box("pothole", [0.02, 0.99, 0.1, 0.1])["bbox_2d"] == [0, 940, 70, 1000]
 
 
+def test_degenerate_boxes_stay_valid_for_referee():
+    """Box mảnh hơn 1 đơn vị, rộng 0, hoặc dính mép phải -> vẫn x2 > x1, y2 > y1 để score.py không loại cả ảnh."""
+    from scripts.score import parse_output
+    for yolo in ([0.5, 0.5, 0.0004, 0.2], [0.5, 0.5, 0.0, 0.0], [1.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0]):
+        for coord in ("norm1000", "pixel"):
+            e = _entry([{"label": "crack", "yolo": yolo}])
+            assert parse_output(entry_answer(e, coord)) is not None, (yolo, coord)
+    assert yolo_to_box("crack", [1.0, 1.0, 0.0, 0.0])["bbox_2d"] == [999, 999, 1000, 1000]
+
+
 def test_yolo_to_box_pixel():
     assert yolo_to_box("manhole", [0.5, 0.5, 0.25, 0.5], "pixel", 640, 360)["bbox_2d"] == [240, 90, 400, 270]
 

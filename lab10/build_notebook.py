@@ -162,6 +162,12 @@ print("\\nPROMPT:", labels.PROMPT_NORM1000)
     code("""
 # Kiểm tra khứ hồi: JSON 0–1000 (số nguyên) -> pixel phải trùng box gốc (sai số làm tròn <= 1 px)
 from scripts.score import evaluate, parse_output
+ALL = splits["train"] + splits["val"] + splits["test"]
+thin = [(e["image_id"], o["yolo"]) for e in ALL for o in e["objects"]
+        if round(o["yolo"][2] * 1000) < 1 or round(o["yolo"][3] * 1000) < 1]
+print(f"box mảnh < 1/1000 khung (đã nới thành 1 đơn vị): {len(thin)}", thin[:3])
+bad = [e["image_id"] for e in ALL for c in ("norm1000", "pixel") if parse_output(entry_answer(e, c)) is None]
+assert not bad, f"đáp án bị score.py coi là JSON hỏng: {bad[:5]}"
 worst = 0.0
 for e in splits["train"]:
     pr = [labels.box_1000_to_pixel(b["bbox"], e["width"], e["height"]) for b in parse_output(entry_answer(e))]

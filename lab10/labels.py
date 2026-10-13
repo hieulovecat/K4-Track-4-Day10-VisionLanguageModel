@@ -33,13 +33,21 @@ def _clamp(v, hi):
     return max(0, min(hi, int(round(v))))
 
 
+def _non_degenerate(a, b, hi):
+    """Box rất mảnh / sát mép có thể làm tròn thành a == b; score.py coi đó là JSON hỏng cho CẢ ảnh."""
+    if b <= a:
+        a = min(a, hi - 1)
+        b = a + 1
+    return a, b
+
+
 def yolo_to_box(label, yolo, coord="norm1000", width=None, height=None):
-    """YOLO (xc, yc, w, h chuẩn hoá [0,1]) -> {"label", "bbox_2d": [x1,y1,x2,y2]} số nguyên."""
+    """YOLO (xc, yc, w, h chuẩn hoá [0,1]) -> {"label", "bbox_2d": [x1,y1,x2,y2]} số nguyên, x2 > x1, y2 > y1."""
     xc, yc, w, h = yolo
     sx, sy = (1000, 1000) if coord == "norm1000" else (width, height)
-    return {"label": label, "bbox_2d": [
-        _clamp((xc - w / 2) * sx, sx), _clamp((yc - h / 2) * sy, sy),
-        _clamp((xc + w / 2) * sx, sx), _clamp((yc + h / 2) * sy, sy)]}
+    x1, x2 = _non_degenerate(_clamp((xc - w / 2) * sx, sx), _clamp((xc + w / 2) * sx, sx), sx)
+    y1, y2 = _non_degenerate(_clamp((yc - h / 2) * sy, sy), _clamp((yc + h / 2) * sy, sy), sy)
+    return {"label": label, "bbox_2d": [x1, y1, x2, y2]}
 
 
 def objects_to_answer(objects, coord="norm1000", width=None, height=None):
