@@ -68,6 +68,9 @@ print("ROOT =", ROOT, "| Kaggle" if ON_KAGGLE else "")
     code("""
 !nvidia-smi -L
 !pip -q install -r requirements-colab.txt
+# Kaggle cài sẵn torchao 0.10; peft 0.21 thấy torchao < 0.16 là báo ImportError khi tạo LoRA.
+# Lab không dùng torchao nên gỡ đi (sau đó nhớ Restart kernel nếu đã import peft/transformers).
+!pip -q uninstall -y torchao
 """),
     code("""
 def get_secret(name):
